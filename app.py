@@ -31,6 +31,11 @@ class Article(db.Model):
 def hello_world():
     return render_template('index.html')
 
+@app.route('/about')
+def about_html():
+    students = ['Dachi Davituri', 'Eka Kesanashvili', 'Gega Gremelashvili', 'Avtandil Gegetchkori', 'Giorgi Gengashvili']
+    return render_template('about.html', students = students)
+
 @app.route('/api/articles')
 def get_articles():
     articles = [article.to_dict() for article in Article.query.all()]

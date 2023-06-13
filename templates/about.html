@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Information Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column
+    
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes colorChange {
+      0% {
+        color: aqua;
+      }
+      25% {
+        color: #e74c3c;
+      }
+      50% {
+        color: violet;
+      }
+      75% {
+        color: chartreuse;
+      }
+      100% {
+        color: pink;
+      }
+    }
+    
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 0;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: slideIn 1s ease-out 0.5s forwards, colorChange 3s ease-in-out infinite;
+    }
+    
+    p {
+      color: #666;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s ease-out 1s forwards;
+    }
+    ol{
+      animation: slideIn 1s ease-out 1s forwards
+    }
+    
+  
+  </style>
+</head>
+<body> 
+    
+  <div class="container">
+  <h1>Flask Blog Project</h1>
+  <p>This is a simple blog project built using Flask, a lightweight web framework in Python.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Create, edit, and delete blog posts</li>
+    <li>View blog posts by different categories or authors</li>
+    <li>Responsive design for optimal viewing on different devices</li>
+  </ul>
+
+  <h2>Host</h2>
+  <ul>
+    <li>here are many ways to host project for free, But we chose pythonanywhere.com წhere you can see its capabilities and pros and cons and evaluate it</li>
+  </ul>
+  <h2>Members</h2>
+  <ol>
+    {%for student in students%}
+    <li>{{student}}</li>
+    {%endfor%}
+  </ol>
+  <h2>Feedback</h2>
+  <ul>
+    <li>We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please contact us. This challenge is completely free. Please share it with anyone who will find it useful for practice.</li>
+  </ul>
+  </div>
+
+</body>
+</html>
