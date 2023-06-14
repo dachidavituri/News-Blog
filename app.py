@@ -52,6 +52,8 @@ def get_articles():
 
 
 
+
+
 @app.route('/api/articles', methods=['POST'])
 def create_article():
     data = request.get_json()
@@ -64,6 +66,24 @@ def create_article():
     db.session.add(article)
     db.session.commit()
     return 'Article created successfully', 201
+
+@app.route('/api/articles/<int:id>', methods = ['PUT'])
+def udpate_article(id):
+    data = request.get_json()
+    title = data['title']
+    description = data['description']
+    category = data['category']
+    author = data['author']
+    date = data['date']
+    article = Article.query.get(id)
+    if article is not None:
+        article.title = title
+        article.description = description
+        article.category = category
+        article.author = author
+        article.date = date
+        db.session.commit()
+    return 'Successfully updated', 200
 
 with app.app_context():
     db.create_all()
