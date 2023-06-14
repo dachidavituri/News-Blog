@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -38,8 +38,19 @@ def about_html():
 
 @app.route('/api/articles')
 def get_articles():
-    articles = [article.to_dict() for article in Article.query.all()]
-    return articles
+    category = request.args.get('category')
+    date = request.args.get('date')
+    if category and date:
+        articles = [article.to_dict() for article in Article.query.filter(Article.category == category).filter(Article.date == date)]
+    elif category:
+        articles = [article.to_dict() for article in Article.query.filter(Article.category == category)]
+    elif date:
+        articles = [article.to_dict() for article in Article.query.filter(Article.date == date)]
+    else:
+        articles = [article.to_dict() for article in Article.query.all()]
+    return jsonify(articles)
+
+
 
 @app.route('/api/articles', methods=['POST'])
 def create_article():
