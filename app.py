@@ -50,6 +50,11 @@ def get_articles():
         articles = [article.to_dict() for article in Article.query.all()]
     return jsonify(articles)
 
+@app.route('/api/articles/<int:id>')
+def get_article(id):
+    article = Article.query.get(id)
+    return jsonify({'article': article.to_dict(), 'status_code': 200})
+
 
 
 
@@ -84,6 +89,7 @@ def udpate_article(id):
         article.date = date
         db.session.commit()
     return 'Successfully updated', 200
+
 
 with app.app_context():
     db.create_all()
