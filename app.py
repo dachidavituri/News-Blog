@@ -50,6 +50,7 @@ def get_articles():
         articles = [article.to_dict() for article in Article.query.all()]
     return jsonify(articles)
 
+# 1
 @app.route('/api/articles/<int:id>')
 def get_article(id):
     article = Article.query.get(id)
