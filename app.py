@@ -28,11 +28,11 @@ class Article(db.Model):
         }
 
 @app.route('/')
-def hello_world():
+def main_page():
     return render_template('index.html')
 
 @app.route('/about')
-def about_html():
+def about_page():
     students = ['Dachi Davituri', 'Eka Kesanashvili', 'Gega Gremelashvili', 'Avtandil Gegetchkori', 'Giorgi Gengashvili']
     return render_template('about.html', students = students)
 
