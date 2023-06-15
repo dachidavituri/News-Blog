@@ -40,6 +40,9 @@ def about_page():
 def get_articles():
     category = request.args.get('category')
     date = request.args.get('date')
+    author = request.args.get('author')
+    if author:
+        articles = [article.to_dict for article in Article.query.filter(Article.author = author)]
     if category and date:
         articles = [article.to_dict() for article in Article.query.filter(Article.category == category).filter(Article.date == date)]
     elif category:
