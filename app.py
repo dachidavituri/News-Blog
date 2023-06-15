@@ -29,12 +29,16 @@ class Article(db.Model):
 
 @app.route('/')
 def main_page():
-    return render_template('index.html')
+    articles = [article.to_dict() for article in Article.query.all()]
+    return render_template('index.html', articles = articles)
+
 
 @app.route('/about')
 def about_page():
     students = ['Dachi Davituri', 'Eka Kesanashvili', 'Gega Gremelashvili', 'Avtandil Gegetchkori', 'Giorgi Gengashvili']
     return render_template('about.html', students = students)
+
+
 
 @app.route('/api/articles')
 def get_articles():
@@ -42,7 +46,8 @@ def get_articles():
     date = request.args.get('date')
     author = request.args.get('author')
     if author:
-        articles = [article.to_dict for article in Article.query.filter(Article.author = author)]
+        articles = [article.to_dict() for article in Article.query.filter(Article.author == author)]
+        return jsonify(articles)
     if category and date:
         articles = [article.to_dict() for article in Article.query.filter(Article.category == category).filter(Article.date == date)]
     elif category:
@@ -52,6 +57,7 @@ def get_articles():
     else:
         articles = [article.to_dict() for article in Article.query.all()]
     return jsonify(articles)
+    
 
 
 @app.route('/api/articles/<int:id>')
