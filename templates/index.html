@@ -16,7 +16,7 @@
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         background-color: #333;
         color: #fff;
@@ -117,18 +117,70 @@
         background-color: #23527c;
         transform: scale(1.1);
       }
+      /* Form styles */
+      .filter-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .filter-input {
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+      }
+
+      .filter-button {
+        padding: 8px 16px;
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: 700;
+        font-family: sans-serif;
+      }
+
+      .filter-button:hover {
+        background-color: #23527c;
+        transform: scale(1.1);
+      }
+      .blog-home{
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 900;
+        
+
+      }
     </style>
   </head>
   <body>
     <div class="navigation">
-      <h1>The Blog</h1>
+     <a href="{{url_for('main_page')}}" class="blog-home">The Blog</a>
       <div class="nav-links-cont">
         <a class="nav-link">CREATE</a>
         <a class="nav-link" href="{{url_for('about_page')}}">ABOUT US</a>
       </div>
+      <form method="GET" action="/" class="filter-form">
+        <input
+          type="text"
+          id="author"
+          name="author"
+          placeholder="Enter author"
+          class="filter-input"
+        />
+        <input type="submit" value="Filter" class="filter-button" />
+      </form>
     </div>
 
-    
     <div class="main-container">
       {%for article in articles%}
       <div class="blog-container">
@@ -141,11 +193,14 @@
           </div>
         </div>
         <div class="blog-actions">
-          <a href="{{url_for('desc_page', article_id = article.id)}}" class="read-more-button">Read More</a>
+          <a
+            href="{{url_for('desc_page', article_id = article.id)}}"
+            class="read-more-button"
+            >Read More</a
+          >
         </div>
       </div>
       {%endfor%}
     </div>
-    
   </body>
 </html>
