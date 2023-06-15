@@ -1,146 +1,180 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ABOUT US</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>ABOUT US</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Roboto+Condensed:wght@700&display=swap');
-    body {
-      font-family: 'Roboto Condensed', sans-serif;
-      background-color: #0c192c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column
-    
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeIn 1s ease-out forwards;
-      border-radius: 40px;
-      box-shadow: 5px 10px #888888;
-    }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Roboto+Condensed:wght@700&display=swap");
+      body {
+        font-family: "Roboto Condensed", sans-serif;
+        background-color: #0c192c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
       }
-    }
-    
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .navigation {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        width: 100%;
+        z-index: 9999;
+        gap: 20px;
       }
-    }
-    @keyframes colorChange {
-      0% {
-        color: aqua;
+
+      .navigation h2 {
+        font-size: 24px;
+        margin-left: 10%;
       }
-      25% {
-        color: #e74c3c;
+
+      .nav-link {
+        margin-left: 50px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
       }
-      50% {
-        color: violet;
+      .nav-links-cont {
+        margin-right: 10%;
       }
-      75% {
-        color: chartreuse;
+
+      .nav-link:hover {
+        text-decoration: underline;
       }
-      100% {
-        color: pink;
+
+      .container {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeIn 1s ease-out forwards;
+        border-radius: 40px;
+        box-shadow: 5px 10px #888888;
+        margin-top: 150px
       }
-    }
-    
-    h1 {
-      color: #333;
-      text-align: center;
-      margin-top: 0;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: slideIn 1s ease-out 0.5s forwards, colorChange 3s ease-in-out infinite;
-    }
-    
-    p {
-      color: #666;
-      line-height: 1.5;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeIn 1s ease-out 1s forwards;
-    }
-    ol{
-      animation: slideIn 1s ease-out 1s forwards
-    }
-    .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            overflow: hidden;
-            animation: pulse 1s infinite;
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
+      @keyframes slideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-    
-    
-  
-  </style>
-</head>
-<body> 
-    
-  <a href="{{ url_for('main_page') }}" class="button">About</a>
-  <div id="stars"></div>
-  <div class="container">
-  <h1>Flask Blog Project</h1>
-  <p>This is a simple blog project built using Flask, a lightweight web framework in Python.</p>
+      }
+      @keyframes colorChange {
+        0% {
+          color: aqua;
+        }
+        25% {
+          color: #e74c3c;
+        }
+        50% {
+          color: violet;
+        }
+        75% {
+          color: chartreuse;
+        }
+        100% {
+          color: pink;
+        }
+      }
 
-  <h2>Features</h2>
-  <ul>
-    <li>Create, edit, and delete blog posts</li>
-    <li>View blog posts by different categories or authors</li>
-    <li>Responsive design for optimal viewing on different devices</li>
-  </ul>
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: slideIn 1s ease-out 0.5s forwards,
+          colorChange 3s ease-in-out infinite;
+      }
 
-  <h2>Host</h2>
-  <ul>
-    <li>here are many ways to host project for free, But we chose pythonanywhere.com where you can see its capabilities and pros and cons and evaluate it</li>
-  </ul>
-  <h2>Members</h2>
-  <ol>
-    {%for student in students%}
-    <li>{{student}}</li>
-    {%endfor%}
-  </ol>
-  <h2>Feedback</h2>
-  <ul>
-    <li>We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please contact us. This challenge is completely free. Please share it with anyone who will find it useful for practice.</li>
-  </ul>
-  </div>
- 
+      p {
+        color: #666;
+        line-height: 1.5;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeIn 1s ease-out 1s forwards;
+      }
+      ol {
+        animation: slideIn 1s ease-out 1s forwards;
+      }
 
-</body>
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navigation">
+      <h2>The Blog</h2>
+      <div class="nav-links-cont">
+        <a class="nav-link">CREATE</a>
+        <a class="nav-link" href="{{url_for('main_page')}}">MAIN</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Flask Blog Project</h1>
+      <p>
+        This is a simple blog project built using Flask, a lightweight web
+        framework in Python.
+      </p>
+
+      <h2>Features</h2>
+      <ul>
+        <li>Create, edit, and delete blog posts</li>
+        <li>View blog posts by different categories or authors</li>
+        <li>Responsive design for optimal viewing on different devices</li>
+      </ul>
+
+      <h2>Host</h2>
+      <ul>
+        <li>
+          here are many ways to host project for free, But we chose
+          pythonanywhere.com where you can see its capabilities and pros and
+          cons and evaluate it
+        </li>
+      </ul>
+      <h2>Members</h2>
+      <ol>
+        {%for student in students%}
+        <li>{{student}}</li>
+        {%endfor%}
+      </ol>
+      <h2>Feedback</h2>
+      <ul>
+        <li>
+          We love receiving feedback! We're always looking to improve our
+          challenges and our platform. So if you have anything you'd like to
+          mention, please contact us. This challenge is completely free. Please
+          share it with anyone who will find it useful for practice.
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
