@@ -4,8 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+    
+    
+  }
+  
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    z-index: 9999;
+    gap: 20px
+  
+  }
+  
+  
+  .navigation h1 {
+    font-size: 24px;
+    margin-left: 10%;
+  }
+  
+  .nav-link {
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .nav-links-cont{
+    margin-right: 10%;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  h1{
+    text-align: center;
+  }
+  .main-container{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    
+    gap: 20px;
+    flex-wrap: wrap;
+    
+    
+  
+  }
+   .blog-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    
+  }
+  
+  .blog-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  .blog-info {
+    flex-grow: 1;
+  }
+  
+  .blog-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .blog-meta {
+    font-family: 'Arial', sans-serif;
+    color: #666;
+  }
+  
+  .blog-meta p {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  
+  .blog-actions {
+    margin-left: 20px;
+  }
+  
+  .read-more-button {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    background-color: #337ab7;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+  }
+  
+  .read-more-button:hover {
+    background-color: #23527c;
+    transform: scale(1.1);
+  }
+  
+  
+      </style>
 </head>
 <body>
+    <div class="navigation">
+      
+        <h1>The Blog</h1>
+      <div class="nav-links-cont">
+        <a class="nav-link">CREATE</a>
+      <a class="nav-link">ABOUT US</a>
+      </div>
+     
+      
+      
+    </div>
+
+    <div class="main-container">
+      <div class="blog-container">
+        <div class="blog-info">
+          <h2 class="blog-title">Blog Title</h2>
+          <div class="blog-meta">
+            <p class="blog-category">Category: </p>
+            <p class="blog-author">Author: </p>
+            <p class="blog-date">Date: </p>
+          </div>
+        </div>
+        <div class="blog-actions">
+          <a href="#" class="read-more-button">Read More</a>
+        </div>
+      </div>
+      
+    </div>
     
     
 </body>
