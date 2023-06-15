@@ -160,13 +160,24 @@
         
 
       }
+      .del-btn{
+        text-decoration: underline;
+        border: none;
+        border-radius: 15px;
+        margin-top: 150px;
+        cursor: pointer;
+      }
+      .del-btn:hover{
+        background-color: rgb(202, 38, 38);
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div class="navigation">
      <a href="{{url_for('main_page')}}" class="blog-home">The Blog</a>
       <div class="nav-links-cont">
-        <a class="nav-link">CREATE</a>
+        <a class="nav-link" href="{{url_for('create_page')}}">CREATE</a>
         <a class="nav-link" href="{{url_for('about_page')}}">ABOUT US</a>
       </div>
       <form method="GET" action="/" class="filter-form">
@@ -199,6 +210,7 @@
             >Read More</a
           >
         </div>
+        <button class="del-btn">DEL</button>
       </div>
       {%endfor%}
     </div>

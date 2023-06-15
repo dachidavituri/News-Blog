@@ -39,6 +39,24 @@ def filter_articles_by_author(author):
         return Article.query.filter_by(author=author).all()
     return articles
 
+@app.route('/create', methods=['GET', 'POST'])
+def create_page():
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['description']
+        category = request.form['category']
+        author = request.form['author']
+        date = request.form['date']
+        new_article = Article(title=title, description=description, category=category, author=author, date=date)
+        db.session.add(new_article)
+        db.session.commit()
+        return redirect(url_for('main_page'))
+    else:
+        return render_template('create.html')
+    
+
+
+
 
 @app.route('/about')
 def about_page():
