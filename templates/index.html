@@ -52,7 +52,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        max-width: 1500px;
+        max-width: 1600px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 100px;
@@ -69,7 +69,7 @@
         padding: 20px;
         margin-bottom: 20px;
         transition: transform 0.3s ease-in-out;
-        width: 350px;
+        width: 400px;
       }
 
       .blog-container:hover {
@@ -117,7 +117,7 @@
         background-color: #23527c;
         transform: scale(1.1);
       }
-      /* Form styles */
+      
       .filter-form {
         display: flex;
         align-items: center;
@@ -169,7 +169,21 @@
       }
       .del-btn:hover{
         background-color: rgb(202, 38, 38);
+        color: white;
+        
+      }
+      .edit-btn{
+        text-decoration: underline;
+        border: none;
+        margin-left: 5px;
+        color: black;
+        border-radius: 15px;
+        margin-top: 150px;
         cursor: pointer;
+      }
+      .edit-btn:hover{
+        background-color: rgb(29, 44, 210);
+        color: white
       }
     </style>
   </head>
@@ -210,7 +224,11 @@
             >Read More</a
           >
         </div>
-        <button class="del-btn">DEL</button>
+        <form action="{{ url_for('delete_article_front', article_id=article.id) }}" method="POST">
+          <button type="submit" class="del-btn">DEL</button>
+        </form>
+        <a href="{{ url_for('edit_article', article_id=article.id) }}" class="edit-btn">Edit</a>
+        
       </div>
       {%endfor%}
     </div>
