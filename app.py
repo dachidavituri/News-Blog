@@ -89,6 +89,13 @@ def udpate_article(id):
         db.session.commit()
     return 'Successfully updated', 200
 
+@app.route('/api/articles/<int:id>', methods = ["DELETE"])
+def delete_article(id):
+    article = Article.query.get(id)
+    db.session.delete(article)
+    db.session.commit()
+    return 'Successfully deleted', 200
+
 
 with app.app_context():
     db.create_all()
