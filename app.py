@@ -29,8 +29,15 @@ class Article(db.Model):
 
 @app.route('/')
 def main_page():
+    author = request.args.get('author')
+    filtered_articles = filter_articles_by_author(author)
+    return render_template('index.html', articles=filtered_articles)
+
+def filter_articles_by_author(author):
     articles = [article.to_dict() for article in Article.query.all()]
-    return render_template('index.html', articles = articles)
+    if author:
+        return Article.query.filter_by(author=author).all()
+    return articles
 
 
 @app.route('/about')
