@@ -38,7 +38,10 @@ def about_page():
     students = ['Dachi Davituri', 'Eka Kesanashvili', 'Gega Gremelashvili', 'Avtandil Gegetchkori', 'Giorgi Gengashvili']
     return render_template('about.html', students = students)
 
-
+@app.route('/description/<int:article_id>')
+def desc_page(article_id):
+    article = Article.query.get(article_id)
+    return render_template('description.html', article = article)
 
 @app.route('/api/articles')
 def get_articles():
