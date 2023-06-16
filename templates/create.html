@@ -133,23 +133,23 @@
       <form method="POST" action="/create">
         <div class="form-field">
           <label for="title">Title:</label>
-          <input type="text" id="title" name="title"  required>
+          <input type="text" id="title" name="title" minlength="3" maxlength="30" required>
         </div>
         <div class="form-field">
           <label for="category">Category:</label>
-          <input type="text" id="category" name="category" required>
+          <input type="text" id="category" name="category" minlength="3" maxlength="20" required>
         </div>
         <div class="form-field">
           <label for="description">Description:</label>
-          <textarea id="description" name="description" required></textarea>
+          <textarea id="description" name="description" minlength="20" maxlength="500" required></textarea>
         </div>
         <div class="form-field">
           <label for="author">Author:</label>
-          <input type="text" id="author" name="author" required>
+          <input type="text" id="author" name="author" minlength="2" maxlength="20" required>
         </div>
         <div class="form-field">
           <label for="date">Date:</label>
-          <input type="text" id="date" name="date" required>
+          <input type="text" id="date" name="date" minlength="2" maxlength="20" required>
         </div>
         <div class="form-field">
           <input type="submit" value="Submit">
