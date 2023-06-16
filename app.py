@@ -64,7 +64,18 @@ def delete_article_front(article_id):
     return redirect(url_for('main_page'))
 
 
-
+@app.route('/edit_article/<int:article_id>', methods=['GET', 'POST'])
+def edit_article(article_id):
+    article = Article.query.get(article_id)
+    if request.method == 'POST':
+        article.title = request.form['title']
+        article.description = request.form['description']
+        article.category = request.form['category']
+        article.author = request.form['author']
+        article.date = request.form['date']
+        db.session.commit()
+        return redirect(url_for('main_page'))
+    return render_template('edit_article.html', article=article)
 
 @app.route('/about')
 def about_page():
