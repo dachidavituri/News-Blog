@@ -53,7 +53,15 @@ def create_page():
         return redirect(url_for('main_page'))
     else:
         return render_template('create.html')
-    
+
+@app.route('/delete_article/<int:article_id>', methods=['POST'])
+def delete_article_front(article_id):
+    article = Article.query.get(article_id)
+    if article:
+        db.session.delete(article)
+        db.session.commit()
+
+    return redirect(url_for('main_page'))
 
 
 
